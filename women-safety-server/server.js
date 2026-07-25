@@ -24,7 +24,10 @@ const guardianRoutess = require("./routes/guardianRoutess");
 
 app.use(
   cors({
-    origin: "http://localhost:3000",
+   origin: [
+      "http://localhost:3000",
+      "https://women-centric-1-rfha.onrender.com"
+    ],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   }),

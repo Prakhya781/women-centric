@@ -90,7 +90,7 @@ router.post(
   upload.single("profile"),
   async (req, res) => {
     try {
-      const imageUrl = `http://localhost:5000/uploads/${req.file.filename}`;
+      const imageUrl = `https://women-centric-hzmm.onrender.com/uploads/${req.file.filename}`;
 
       const user = await User.findByIdAndUpdate(
         req.user.id,
