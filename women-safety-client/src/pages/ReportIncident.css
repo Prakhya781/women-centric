@@ -1,0 +1,334 @@
+/* ================= PAGE ================= */
+
+.report-page {
+  width: 100%;
+  min-height: 100vh;
+  padding: 35px;
+  background: transparent;
+  color: white;
+  font-family: "Poppins", sans-serif;
+}
+
+/* ================= HEADER ================= */
+
+.report-header {
+  margin-bottom: 30px;
+}
+
+.report-header h1 {
+  font-size: 34px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 10px;
+  background: linear-gradient(90deg, #ff4d6d, #ff758f);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.report-header p {
+  color: #94a3b8;
+  font-size: 15px;
+}
+
+/* ================= FORM CARD ================= */
+
+.report-card {
+  width: 100%;
+  background: rgba(15, 23, 42, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  padding: 28px;
+  backdrop-filter: blur(14px);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+  margin-bottom: 30px;
+}
+
+.report-card h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+/* ================= INPUTS ================= */
+
+.report-card input,
+.report-card textarea,
+.report-card select {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  outline: none;
+  border-radius: 16px;
+  padding: 14px 18px;
+  color: white;
+  margin-bottom: 18px;
+  font-size: 15px;
+  transition: 0.3s;
+}
+
+.report-card input:focus,
+.report-card textarea:focus,
+.report-card select:focus {
+  border-color: #ff4d6d;
+  box-shadow: 0 0 0 3px rgba(255, 77, 109, 0.15);
+}
+
+.report-card textarea {
+  min-height: 130px;
+  resize: none;
+}
+
+.report-card input::placeholder,
+.report-card textarea::placeholder {
+  color: #94a3b8;
+}
+
+/* ================= FILE INPUT ================= */
+
+.file-upload {
+  margin-bottom: 20px;
+}
+
+.file-upload label {
+  display: block;
+  margin-bottom: 10px;
+  color: #cbd5e1;
+  font-size: 14px;
+}
+
+.file-upload input[type="file"] {
+  padding: 10px;
+  cursor: pointer;
+}
+
+/* ================= LOCATION CARD ================= */
+
+.location-box {
+  width: 100%;
+  background: rgba(255, 77, 109, 0.08);
+  border: 1px solid rgba(255, 77, 109, 0.2);
+  padding: 18px;
+  border-radius: 18px;
+  margin-bottom: 20px;
+}
+
+.location-box h4 {
+  color: #ff4d6d;
+  margin-bottom: 8px;
+  font-size: 16px;
+}
+
+.location-box p {
+  color: #cbd5e1;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* ================= BUTTON ================= */
+
+.report-btn {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #ff4d6d, #ff758f);
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.report-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(255, 77, 109, 0.35);
+}
+
+/* ================= INCIDENT LIST ================= */
+
+.incident-section {
+  margin-top: 40px;
+}
+
+.incident-section h2 {
+  font-size: 28px;
+  margin-bottom: 22px;
+  color: white;
+}
+
+/* ================= INCIDENT CARD ================= */
+
+.incident-card {
+  width: 100%;
+  background: rgba(15, 23, 42, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 22px;
+  padding: 22px;
+  margin-bottom: 20px;
+  transition: 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.incident-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(255, 77, 109, 0.25);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.35);
+}
+
+.incident-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.incident-top h3 {
+  font-size: 22px;
+  color: white;
+  font-weight: 600;
+}
+
+.incident-type {
+  padding: 8px 16px;
+  border-radius: 30px;
+  background: rgba(255, 77, 109, 0.15);
+  color: #ff4d6d;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.incident-date {
+  color: #94a3b8;
+  font-size: 13px;
+}
+
+.incident-card p {
+  color: #e2e8f0;
+  line-height: 1.7;
+  margin-bottom: 15px;
+}
+
+/* ================= IMAGE ================= */
+
+.incident-image {
+  width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+  border-radius: 18px;
+  margin-top: 15px;
+}
+
+/* ================= STATUS ================= */
+
+.status-badge {
+  margin-top: 16px;
+  display: inline-block;
+  padding: 8px 14px;
+  border-radius: 30px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.status-pending {
+  background: rgba(245, 158, 11, 0.15);
+  color: #f59e0b;
+}
+
+.status-resolved {
+  background: rgba(34, 197, 94, 0.15);
+  color: #22c55e;
+}
+
+/* ================= ACTION BUTTONS ================= */
+
+.report-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.edit-btn {
+  padding: 11px 18px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.edit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(59, 130, 246, 0.35);
+}
+
+.delete-btn {
+  padding: 11px 18px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.delete-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(239, 68, 68, 0.35);
+}
+
+/* ================= LOADING ================= */
+
+.loading-text {
+  text-align: center;
+  color: #94a3b8;
+  margin-top: 20px;
+}
+
+/* ================= EMPTY ================= */
+
+.empty-box {
+  width: 100%;
+  text-align: center;
+  padding: 40px;
+  border-radius: 22px;
+  background: rgba(15, 23, 42, 0.7);
+  color: #94a3b8;
+  border: 1px dashed rgba(255, 255, 255, 0.1);
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 768px) {
+  .report-page {
+    padding: 18px;
+  }
+
+  .report-header h1 {
+    font-size: 28px;
+  }
+
+  .report-card {
+    padding: 20px;
+  }
+
+  .incident-top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .report-actions {
+    flex-direction: column;
+  }
+
+  .edit-btn,
+  .delete-btn {
+    width: 100%;
+  }
+}

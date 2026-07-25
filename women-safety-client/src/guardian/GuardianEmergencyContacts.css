@@ -1,0 +1,132 @@
+/* ============================================================
+   10. src/guardian/GuardianEmergencyContacts.css
+   ============================================================ */
+
+.gcontacts-page {
+  color: white;
+}
+
+.gcontacts-loading,
+.gcontacts-empty {
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: #cfcfcf;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  backdrop-filter: blur(20px);
+  text-align: center;
+  padding: 40px;
+}
+
+.gcontacts-header {
+  margin-bottom: 22px;
+}
+
+.gcontacts-header h1 {
+  font-size: 34px;
+  margin-bottom: 8px;
+}
+
+.gcontacts-header p {
+  color: #bdbdbd;
+}
+
+.gcontacts-woman-card {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 22px;
+  padding: 22px;
+  margin-bottom: 26px;
+  backdrop-filter: blur(20px);
+}
+
+.gcontacts-woman-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.gcontacts-woman-item h4 {
+  color: #cfcfcf;
+  font-size: 13px;
+  margin-bottom: 4px;
+}
+
+.gcontacts-woman-item p {
+  color: white;
+  font-size: 15px;
+}
+
+.gcontacts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.gcontacts-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 22px;
+  padding: 22px;
+  backdrop-filter: blur(20px);
+}
+
+.gcontacts-top {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.gcontacts-avatar {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ff4da6, #8b5cf6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.gcontacts-info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.gcontacts-info div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #cfcfcf;
+  font-size: 14px;
+}
+
+.gcontacts-priority {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(139, 92, 246, 0.15);
+  color: #8b5cf6;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+@media (max-width: 992px) {
+  .gcontacts-woman-card {
+    grid-template-columns: 1fr;
+  }
+}

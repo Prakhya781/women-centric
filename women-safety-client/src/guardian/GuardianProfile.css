@@ -1,0 +1,158 @@
+/* ============================================================
+   12. src/guardian/GuardianProfile.css
+   ============================================================ */
+
+.gprofile-page {
+  color: white;
+}
+
+.gprofile-loading {
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #cfcfcf;
+}
+
+.gprofile-topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 26px;
+}
+
+.gprofile-topbar h1 {
+  font-size: 34px;
+  margin-bottom: 8px;
+}
+
+.gprofile-topbar p {
+  color: #bdbdbd;
+}
+
+.gprofile-save-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 24px;
+  border: none;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #ff4da6, #8b5cf6);
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.gprofile-save-btn:hover {
+  transform: translateY(-2px);
+}
+
+.gprofile-save-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.gprofile-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 28px;
+  padding: 32px;
+  backdrop-filter: blur(20px);
+}
+
+.gprofile-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 32px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.gprofile-avatar {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ff4da6, #8b5cf6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gprofile-header p {
+  color: #9ca3af;
+  margin-top: 4px;
+}
+
+.gprofile-form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+}
+
+.gprofile-input-group label {
+  display: block;
+  margin-bottom: 10px;
+  color: #cfcfcf;
+  font-size: 14px;
+}
+
+.gprofile-input {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 56px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.06);
+  padding: 0 16px;
+}
+
+.gprofile-input.disabled {
+  opacity: 0.6;
+}
+
+.gprofile-icon {
+  width: 18px;
+  height: 18px;
+  color: #cbd5e1;
+}
+
+.gprofile-input input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: white;
+  font-size: 15px;
+}
+
+.gprofile-select {
+  width: 100%;
+  height: 56px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.06);
+  padding: 0 16px;
+  color: white;
+  font-size: 15px;
+  outline: none;
+  cursor: pointer;
+}
+
+.gprofile-select option {
+  background: #111827;
+}
+
+@media (max-width: 768px) {
+  .gprofile-form {
+    grid-template-columns: 1fr;
+  }
+
+  .gprofile-topbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+}

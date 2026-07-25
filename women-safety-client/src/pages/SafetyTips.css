@@ -1,0 +1,223 @@
+/* src/components/SafetyTips.css */
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+/* ================= PAGE ================= */
+
+.tips-page {
+  width: 100%;
+  min-height: 100vh;
+
+  padding: 35px;
+
+  background: #070414;
+
+  color: white;
+}
+
+/* ================= HEADER ================= */
+
+.tips-header {
+  margin-bottom: 40px;
+}
+
+.tips-header h1 {
+  font-size: 42px;
+
+  font-weight: 700;
+
+  margin-bottom: 12px;
+
+  background: linear-gradient(135deg, #ff4da6, #8b5cf6);
+
+  -webkit-background-clip: text;
+
+  -webkit-text-fill-color: transparent;
+}
+
+.tips-header p {
+  color: #cbd5e1;
+
+  font-size: 16px;
+
+  line-height: 1.7;
+}
+
+/* ================= SINGLE COLUMN ================= */
+
+.tips-grid {
+  width: 100%;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 24px;
+}
+
+/* ================= CARD ================= */
+
+.tip-card {
+  width: 100%;
+
+  position: relative;
+
+  overflow: hidden;
+
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 24px;
+
+  padding: 28px;
+
+  border-radius: 28px;
+
+  background: rgba(255, 255, 255, 0.05);
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  backdrop-filter: blur(18px);
+
+  transition: 0.35s ease;
+}
+
+.tip-card:hover {
+  transform: translateY(-4px);
+
+  border: 1px solid rgba(255, 77, 166, 0.5);
+
+  box-shadow: 0 0 30px rgba(255, 77, 166, 0.15);
+}
+
+/* ================= GLOW ================= */
+
+.tip-card::before {
+  content: "";
+
+  position: absolute;
+
+  width: 240px;
+  height: 240px;
+
+  border-radius: 50%;
+
+  background: rgba(139, 92, 246, 0.08);
+
+  right: -120px;
+  top: -120px;
+}
+
+/* ================= ICON ================= */
+
+.tip-icon {
+  min-width: 78px;
+  min-height: 78px;
+
+  border-radius: 22px;
+
+  background: linear-gradient(135deg, #ff4da6, #8b5cf6);
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  position: relative;
+
+  z-index: 2;
+
+  box-shadow: 0 0 20px rgba(255, 77, 166, 0.3);
+}
+
+/* ================= CONTENT ================= */
+
+.tip-content {
+  flex: 1;
+
+  position: relative;
+
+  z-index: 2;
+}
+
+/* ================= CATEGORY ================= */
+
+.tip-category {
+  display: inline-block;
+
+  padding: 8px 18px;
+
+  border-radius: 40px;
+
+  background: rgba(255, 77, 166, 0.14);
+
+  color: #ff4da6;
+
+  font-size: 13px;
+
+  font-weight: 600;
+
+  margin-bottom: 16px;
+}
+
+/* ================= TITLE ================= */
+
+.tip-content h2 {
+  font-size: 26px;
+
+  font-weight: 600;
+
+  margin-bottom: 14px;
+
+  line-height: 1.5;
+}
+
+/* ================= DESCRIPTION ================= */
+
+.tip-content p {
+  color: #cbd5e1;
+
+  font-size: 15px;
+
+  line-height: 1.9;
+
+  max-width: 95%;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 768px) {
+  .tips-page {
+    padding: 20px;
+  }
+
+  .tips-header h1 {
+    font-size: 32px;
+  }
+
+  .tip-card {
+    flex-direction: column;
+
+    padding: 22px;
+  }
+
+  .tip-content h2 {
+    font-size: 22px;
+  }
+
+  .tip-content p {
+    max-width: 100%;
+  }
+}

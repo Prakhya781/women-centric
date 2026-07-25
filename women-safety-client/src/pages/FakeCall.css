@@ -1,0 +1,343 @@
+/* ================= MAIN PAGE ================= */
+
+.fake-call-page {
+  padding: 30px;
+  min-height: 100vh;
+  color: #fff;
+}
+
+.fakecall-page-header {
+  margin-bottom: 25px;
+}
+
+.fakecall-page-header h1 {
+  font-size: 34px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 8px;
+}
+
+.fakecall-page-header p {
+  color: #94a3b8;
+  font-size: 15px;
+}
+
+/* ================= TOP CARDS ================= */
+
+.fakecall-top-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-bottom: 25px;
+}
+
+.fakecall-stat-card {
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 18px;
+  padding: 22px;
+  transition: 0.3s;
+}
+
+.fakecall-stat-card:hover {
+  transform: translateY(-4px);
+  border-color: #ef4444;
+}
+
+.fakecall-stat-card svg {
+  color: #ef4444;
+  margin-bottom: 12px;
+}
+
+.fakecall-stat-card h3 {
+  color: white;
+  margin-bottom: 8px;
+  font-size: 18px;
+}
+
+.fakecall-stat-card p {
+  color: #94a3b8;
+  font-size: 14px;
+}
+
+/* ================= MAIN GRID ================= */
+
+.fakecall-main-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+  margin-bottom: 25px;
+}
+
+/* ================= SETTINGS CARD ================= */
+
+.fake-call-card {
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 20px;
+  padding: 25px;
+}
+
+.fake-call-card h2 {
+  color: white;
+  margin-bottom: 20px;
+}
+
+.fake-call-card label {
+  display: block;
+  margin-top: 15px;
+  margin-bottom: 8px;
+  color: #cbd5e1;
+  font-weight: 500;
+}
+
+.fake-call-card input,
+.fake-call-card select {
+  width: 100%;
+  padding: 14px;
+  background: #0f172a;
+  border: 1px solid #334155;
+  border-radius: 12px;
+  color: white;
+  outline: none;
+}
+
+.fake-call-card input:focus,
+.fake-call-card select:focus {
+  border-color: #ef4444;
+}
+
+/* ================= BUTTONS ================= */
+
+.button-row {
+  display: flex;
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.save-btn,
+.schedule-btn {
+  flex: 1;
+  border: none;
+  padding: 14px;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.save-btn {
+  background: #2563eb;
+  color: white;
+}
+
+.schedule-btn {
+  background: #ef4444;
+  color: white;
+}
+
+.save-btn:hover,
+.schedule-btn:hover {
+  transform: translateY(-2px);
+}
+
+/* ================= INFO CARD ================= */
+
+.fakecall-info-card {
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 20px;
+  padding: 25px;
+}
+
+.fakecall-info-card h2 {
+  margin-bottom: 20px;
+  color: white;
+}
+
+.info-item {
+  margin-bottom: 18px;
+}
+
+.info-item h4 {
+  color: white;
+  margin-bottom: 6px;
+}
+
+.info-item p {
+  color: #94a3b8;
+  font-size: 14px;
+}
+
+/* ================= FEATURES ================= */
+
+.fakecall-features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-bottom: 25px;
+}
+
+.feature-box {
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 16px;
+  padding: 20px;
+}
+
+.feature-box h4 {
+  color: white;
+  margin-bottom: 10px;
+}
+
+.feature-box p {
+  color: #94a3b8;
+}
+
+/* ================= TIP CARD ================= */
+
+.fakecall-tip-card {
+  background: linear-gradient(
+    135deg,
+    rgba(239, 68, 68, 0.15),
+    rgba(239, 68, 68, 0.05)
+  );
+
+  border: 1px solid rgba(239, 68, 68, 0.3);
+
+  border-radius: 18px;
+
+  padding: 20px;
+}
+
+.fakecall-tip-card h3 {
+  color: #ef4444;
+  margin-bottom: 10px;
+}
+
+.fakecall-tip-card p {
+  color: #cbd5e1;
+}
+
+/* ================= INCOMING CALL ================= */
+
+.incoming-call-screen,
+.call-connected-screen {
+  min-height: 100vh;
+  background: #0f172a;
+  color: white;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ================= CALLER AVATAR ================= */
+
+.caller-avatar {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+
+  background: #1e293b;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin-bottom: 20px;
+
+  animation: pulseAvatar 2s infinite;
+}
+
+.caller-avatar svg {
+  width: 65px;
+  height: 65px;
+}
+
+/* ================= CALL ACTIONS ================= */
+
+.call-actions {
+  display: flex;
+  gap: 50px;
+  margin-top: 40px;
+}
+
+.accept-btn,
+.decline-btn {
+  width: 85px;
+  height: 85px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.accept-btn {
+  background: #22c55e;
+  color: white;
+}
+
+.decline-btn {
+  background: #ef4444;
+  color: white;
+}
+
+.accept-btn svg,
+.decline-btn svg {
+  width: 32px;
+  height: 32px;
+}
+
+/* ================= END CALL ================= */
+
+.fake-call-end-call-btn {
+  margin-top: 25px;
+  width: 150px;
+  background: #ef4444;
+  color: white;
+
+  border: none;
+
+  padding: 14px 35px;
+
+  border-radius: 50px;
+
+  cursor: pointer;
+}
+
+/* ================= ANIMATION ================= */
+
+@keyframes pulseAvatar {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.5);
+  }
+
+  70% {
+    transform: scale(1.08);
+    box-shadow: 0 0 0 25px rgba(239, 68, 68, 0);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 768px) {
+  .fakecall-top-grid,
+  .fakecall-features,
+  .fakecall-main-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .button-row {
+    flex-direction: column;
+  }
+}

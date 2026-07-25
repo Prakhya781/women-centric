@@ -1,0 +1,107 @@
+/* ============================================================
+   4. src/guardian/GuardianNotifications.css
+   ============================================================ */
+
+.gnotif-page {
+  color: white;
+}
+
+.gnotif-loading,
+.gnotif-empty {
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: #cfcfcf;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  backdrop-filter: blur(20px);
+  text-align: center;
+  padding: 40px;
+}
+
+.gnotif-header {
+  margin-bottom: 26px;
+}
+
+.gnotif-header h1 {
+  font-size: 34px;
+  margin-bottom: 8px;
+}
+
+.gnotif-header p {
+  color: #bdbdbd;
+}
+
+.gnotif-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.gnotif-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 20px;
+  position: relative;
+  backdrop-filter: blur(20px);
+  transition: 0.3s;
+}
+
+.gnotif-card:hover {
+  transform: translateY(-3px);
+}
+
+.gnotif-card.sos {
+  border-color: rgba(239, 68, 68, 0.35);
+}
+
+.gnotif-icon {
+  width: 46px;
+  height: 46px;
+  min-width: 46px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gnotif-content h4 {
+  margin-bottom: 6px;
+  font-size: 16px;
+}
+
+.gnotif-content p {
+  color: #cfcfcf;
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+.gnotif-content small {
+  color: #8f8f8f;
+  font-size: 12px;
+}
+
+.gnotif-dot {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #ff4da6;
+}
+
+@media (max-width: 768px) {
+  .gnotif-card {
+    flex-direction: column;
+  }
+}

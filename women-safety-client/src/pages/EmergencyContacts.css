@@ -1,0 +1,257 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.contacts-page {
+  width: 100%;
+
+  min-height: 100vh;
+
+  padding: 35px;
+
+  background: #070414;
+
+  color: white;
+
+  font-family: "Poppins", sans-serif;
+}
+
+/* HEADER */
+
+.contacts-header {
+  margin-bottom: 35px;
+}
+
+.contacts-header h1 {
+  font-size: 40px;
+
+  margin-bottom: 10px;
+
+  background: linear-gradient(135deg, #ff4da6, #8b5cf6);
+
+  -webkit-background-clip: text;
+
+  -webkit-text-fill-color: transparent;
+}
+
+.contacts-header p {
+  color: #cbd5e1;
+
+  font-size: 15px;
+}
+
+/* FORM */
+
+.contact-form {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 20px;
+
+  margin-bottom: 40px;
+}
+
+.contact-form input,
+.contact-form select {
+  height: 58px;
+
+  border-radius: 16px;
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  background: rgba(255, 255, 255, 0.05);
+
+  color: white;
+
+  padding: 0 18px;
+
+  outline: none;
+}
+
+.contact-form button {
+  height: 58px;
+
+  border: none;
+
+  border-radius: 16px;
+
+  background: linear-gradient(135deg, #ff4da6, #8b5cf6);
+
+  color: white;
+
+  font-size: 15px;
+
+  font-weight: 600;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 10px;
+
+  cursor: pointer;
+}
+
+/* GRID */
+
+.contacts-grid {
+  display: grid;
+
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+
+  gap: 28px;
+}
+
+/* CARD */
+
+.contact-card {
+  background: rgba(255, 255, 255, 0.05);
+
+  border-radius: 28px;
+
+  padding: 28px;
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  backdrop-filter: blur(18px);
+}
+
+.card-top {
+  display: flex;
+
+  align-items: center;
+
+  gap: 18px;
+
+  margin-bottom: 25px;
+}
+
+.avatar {
+  width: 68px;
+  height: 68px;
+
+  border-radius: 50%;
+
+  background: linear-gradient(135deg, #ff4da6, #8b5cf6);
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  font-size: 24px;
+
+  font-weight: 600;
+}
+
+.card-top h2 {
+  margin-bottom: 6px;
+}
+
+.card-top p {
+  color: #cbd5e1;
+}
+
+/* INFO */
+
+.contact-info {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 14px;
+
+  margin-bottom: 24px;
+}
+
+.contact-info div {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  color: #cbd5e1;
+}
+
+/* BADGE */
+
+.priority-badge {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  padding: 10px 16px;
+
+  border-radius: 30px;
+
+  background: rgba(255, 77, 166, 0.14);
+
+  color: #ff4da6;
+
+  margin-bottom: 24px;
+}
+
+/* BUTTONS */
+
+.card-buttons {
+  display: flex;
+
+  gap: 14px;
+}
+
+.edit-btn,
+.delete-btn {
+  width: 50px;
+  height: 50px;
+
+  border: none;
+
+  border-radius: 14px;
+
+  cursor: pointer;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  color: white;
+}
+
+.edit-btn {
+  background: #8b5cf6;
+}
+
+.delete-btn {
+  background: #ff4d6d;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 992px) {
+  .contact-form {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .contacts-page {
+    padding: 20px;
+  }
+
+  .contacts-header h1 {
+    font-size: 30px;
+  }
+}

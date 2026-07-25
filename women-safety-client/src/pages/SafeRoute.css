@@ -1,0 +1,117 @@
+.safe-route-page {
+  padding: 30px;
+  min-height: 100vh;
+  background: transparent;
+}
+
+.route-header h1 {
+  color: #fff;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.route-header p {
+  color: #94a3b8;
+  margin-top: 8px;
+}
+
+.route-card {
+  margin-top: 25px;
+  background: #111827;
+  border: 1px solid #1f2937;
+  border-radius: 20px;
+  padding: 20px;
+
+  display: flex;
+  gap: 15px;
+}
+.route-btn {
+  width: 200px;
+  margin-top: 15px;
+  height: 55px;
+  border: none;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #ff4da6, #8b5cf6);
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.route-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(255, 77, 166, 0.25);
+}
+
+.route-card input {
+  flex: 1;
+
+  background: #0f172a;
+
+  border: 1px solid #334155;
+
+  color: white;
+
+  border-radius: 12px;
+
+  padding: 14px;
+}
+
+.route-card button {
+  border: none;
+
+  background: #e11d48;
+
+  color: white;
+
+  padding: 14px 22px;
+
+  border-radius: 12px;
+
+  cursor: pointer;
+}
+
+.map-card {
+  margin-top: 25px;
+
+  overflow: hidden;
+
+  border-radius: 20px;
+
+  border: 1px solid #1f2937;
+}
+
+.route-stats {
+  margin-top: 25px;
+
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 20px;
+}
+
+.stat-card {
+  background: #111827;
+
+  border: 1px solid #1f2937;
+
+  border-radius: 18px;
+
+  padding: 20px;
+}
+
+.stat-card h3 {
+  color: white;
+}
+
+.stat-card p {
+  margin-top: 10px;
+
+  font-size: 24px;
+
+  color: #22c55e;
+
+  font-weight: 700;
+}

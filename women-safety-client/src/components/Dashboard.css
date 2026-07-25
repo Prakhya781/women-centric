@@ -1,0 +1,145 @@
+/* src/pages/Dashboard.css */
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+.dashboard-page {
+  width: 100%;
+  min-height: 100vh;
+
+  background: #070414;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 40px;
+}
+
+.dashboard-card {
+  width: 100%;
+  max-width: 1100px;
+
+  background: rgba(255, 255, 255, 0.06);
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  backdrop-filter: blur(20px);
+
+  border-radius: 32px;
+
+  padding: 50px;
+
+  color: white;
+}
+
+.dashboard-card h1 {
+  font-size: 42px;
+  margin-bottom: 12px;
+}
+
+.dashboard-card p {
+  color: #cbd5e1;
+  margin-bottom: 40px;
+}
+
+.dashboard-grid {
+  display: grid;
+
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+
+  gap: 25px;
+}
+
+.dashboard-box {
+  height: 170px;
+
+  border-radius: 24px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 20px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.dashboard-box:hover {
+  transform: translateY(-6px);
+}
+
+.pink {
+  background: linear-gradient(135deg, #ff4da6, #ff0080);
+}
+
+.purple {
+  background: linear-gradient(135deg, #8b5cf6, #6d28d9);
+}
+
+.blue {
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+}
+
+.orange {
+  background: linear-gradient(135deg, #fb923c, #ea580c);
+}
+.gray-text {
+  color: #94a3b8;
+}
+
+.danger-text {
+  color: #ff4d6d;
+}
+
+.gray-circle {
+  width: 60px;
+  height: 60px;
+
+  border-radius: 50%;
+
+  background: rgba(148, 163, 184, 0.15);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: #94a3b8;
+}
+
+.red-circle {
+  width: 60px;
+  height: 60px;
+
+  border-radius: 50%;
+
+  background: rgba(255, 77, 109, 0.15);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: #ff4d6d;
+}
+
+@media (max-width: 768px) {
+  .dashboard-card {
+    padding: 30px 20px;
+  }
+
+  .dashboard-card h1 {
+    font-size: 30px;
+  }
+}
