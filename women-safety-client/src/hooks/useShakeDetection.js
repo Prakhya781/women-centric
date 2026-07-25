@@ -18,7 +18,7 @@ export default function useShakeDetection() {
     const setActiveStatus = async (active) => {
       try {
         await axios.put(
-          "http://localhost:5000/api/user/shake-status",
+          "https://women-centric-hzmm.onrender.com/api/user/shake-status",
           { active },
           { headers: { Authorization: `Bearer ${token}` } }
         );
@@ -34,7 +34,7 @@ export default function useShakeDetection() {
         );
 
         await axios.post(
-          "http://localhost:5000/api/sos/trigger",
+          "https://women-centric-hzmm.onrender.com/api/sos/trigger",
           {
             message: "Shake detection triggered emergency",
             location: {

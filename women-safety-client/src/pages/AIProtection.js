@@ -47,7 +47,7 @@ const AIProtection = () => {
       setLoading(true);
 
       const res = await axios.post(
-        "http://localhost:5000/api/ai/analyze",
+        "https://women-centric-hzmm.onrender.com/api/ai/analyze",
         {
           message,
         },
@@ -87,7 +87,7 @@ const AIProtection = () => {
       setIsSendingSOS(true);
 
       await axios.post(
-        "http://localhost:5000/api/sos/trigger",
+        "https://women-centric-hzmm.onrender.com/api/sos/trigger",
         {
           message,
           location,
@@ -114,7 +114,7 @@ const AIProtection = () => {
       setIsSendingGuardian(true);
 
       const res = await axios.post(
-        "http://localhost:5000/api/guardian-alert/alert",
+        "https://women-centric-hzmm.onrender.com/api/guardian-alert/alert",
         {
           message,
           riskLevel: result?.riskLevel || "HIGH",

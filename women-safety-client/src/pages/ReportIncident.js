@@ -22,7 +22,7 @@ export default function ReportIncident() {
 
   const fetchReports = useCallback(async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/report/all");
+      const res = await axios.get("https://women-centric-hzmm.onrender.com/api/report/all");
 
       setReports(res.data);
     } catch (error) {
@@ -51,7 +51,7 @@ export default function ReportIncident() {
     try {
       if (editingId) {
         await axios.put(
-          `http://localhost:5000/api/report/update/${editingId}`,
+          `https://women-centric-hzmm.onrender.com/api/report/update/${editingId}`,
           formData,
           {
             headers: {
@@ -62,7 +62,7 @@ export default function ReportIncident() {
 
         alert("Report Updated Successfully");
       } else {
-        await axios.post("http://localhost:5000/api/report/create", formData, {
+        await axios.post("https://women-centric-hzmm.onrender.com/api/report/create", formData, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -110,7 +110,7 @@ export default function ReportIncident() {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/api/report/delete/${id}`, {
+      await axios.delete(`https://women-centric-hzmm.onrender.com/api/report/delete/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

@@ -40,7 +40,7 @@ const [loading, setLoading] = useState(true);
 //     const token = localStorage.getItem("token");
 
 //     await axios.get(
-//       "http://localhost:5000/api/guardian/dashboard",
+//       "https://women-centric-hzmm.onrender.com/api/guardian/dashboard",
 //       {
 //         headers: {
 //           Authorization: `Bearer ${token}`,
@@ -120,7 +120,7 @@ try{
 const token=localStorage.getItem("token");
 
 await axios.get(
-"http://localhost:5000/api/guardian/dashboard",
+"https://women-centric-hzmm.onrender.com/api/guardian/dashboard",
 {
 headers:{
 Authorization:`Bearer ${token}`

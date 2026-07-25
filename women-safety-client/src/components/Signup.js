@@ -58,7 +58,7 @@ export default function Signup() {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/auth/signup",
+        "https://women-centric-hzmm.onrender.com/api/auth/signup",
         {
           ...formData,
           role,
@@ -106,7 +106,7 @@ export default function Signup() {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/auth/login",
+        "https://women-centric-hzmm.onrender.com/api/auth/login",
         {
           email: formData.email,
           password: formData.password,

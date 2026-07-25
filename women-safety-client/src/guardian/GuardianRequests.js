@@ -15,7 +15,7 @@ export default function GuardianRequests() {
       const token = localStorage.getItem("token");
 
       const res = await axios.get(
-        "http://localhost:5000/api/guardian/requests",
+        "https://women-centric-hzmm.onrender.com/api/guardian/requests",
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -36,7 +36,7 @@ export default function GuardianRequests() {
       const token = localStorage.getItem("token");
 
       await axios.put(
-        `http://localhost:5000/api/guardian/accept/${id}`,
+        `https://women-centric-hzmm.onrender.com/api/guardian/accept/${id}`,
         {},
         {
           headers: {
@@ -56,7 +56,7 @@ export default function GuardianRequests() {
       const token = localStorage.getItem("token");
 
       await axios.put(
-        `http://localhost:5000/api/guardian/reject/${id}`,
+        `https://women-centric-hzmm.onrender.com/api/guardian/reject/${id}`,
         {},
         {
           headers: {

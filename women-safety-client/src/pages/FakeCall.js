@@ -39,7 +39,7 @@ export default function FakeCall() {
       const token = localStorage.getItem("token");
 
       const res = await axios.get(
-        "http://localhost:5000/api/fake-call/settings",
+        "https://women-centric-hzmm.onrender.com/api/fake-call/settings",
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -60,7 +60,7 @@ export default function FakeCall() {
       const token = localStorage.getItem("token");
 
       await axios.put(
-        "http://localhost:5000/api/fake-call/save",
+        "https://women-centric-hzmm.onrender.com/api/fake-call/save",
         {
           fakeCallName: callerName,
           fakeCallNumber: callerNumber,

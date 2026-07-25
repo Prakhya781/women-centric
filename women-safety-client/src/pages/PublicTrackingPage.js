@@ -58,7 +58,7 @@ try{
 
 const res=await axios.get(
 
-`http://localhost:5000/api/location/track/${token}`
+`https://women-centric-hzmm.onrender.com/api/location/track/${token}`
 
 );
 
@@ -159,7 +159,7 @@ return(
 
 src={
 woman.profileImage
-? `http://localhost:5000/${woman.profileImage}`
+? `https://women-centric-hzmm.onrender.com/${woman.profileImage}`
 : "https://via.placeholder.com/100"
 }
 

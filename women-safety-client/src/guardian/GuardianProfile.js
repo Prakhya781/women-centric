@@ -31,7 +31,7 @@ export default function GuardianProfile() {
     try {
       const token = localStorage.getItem("token");
 
-      const res = await axios.get("http://localhost:5000/api/auth/profile", {
+      const res = await axios.get("https://women-centric-hzmm.onrender.com/api/auth/profile", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -62,7 +62,7 @@ export default function GuardianProfile() {
       const token = localStorage.getItem("token");
 
       const res = await axios.put(
-        "http://localhost:5000/api/auth/update-profile",
+        "https://women-centric-hzmm.onrender.com/api/auth/update-profile",
         {
           name: profileData.name,
           phone: profileData.phone,

@@ -27,7 +27,7 @@ export default function GuardianSafetyStatus() {
       const token = localStorage.getItem("token");
 
       const res = await axios.get(
-        "http://localhost:5000/api/guardian/safety-status",
+        "https://women-centric-hzmm.onrender.com/api/guardian/safety-status",
         {
           headers: {
             Authorization: `Bearer ${token}`,

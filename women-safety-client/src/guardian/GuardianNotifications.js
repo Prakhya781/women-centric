@@ -19,7 +19,7 @@ export default function GuardianNotifications() {
       const token = localStorage.getItem("token");
 
       const res = await axios.get(
-        "http://localhost:5000/api/guardian/notifications",
+        "https://women-centric-hzmm.onrender.com/api/guardian/notifications",
         {
           headers: {
             Authorization: `Bearer ${token}`,

@@ -45,7 +45,7 @@ const [currentTip, setCurrentTip] = useState(0);
       const token = localStorage.getItem("token");
 
       const res = await axios.get(
-        "http://localhost:5000/api/dashboard/status",
+        "https://women-centric-hzmm.onrender.com/api/dashboard/status",
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -64,7 +64,7 @@ const [currentTip, setCurrentTip] = useState(0);
 
 const fetchTips = async () => {
   try {
-    const response = await axios.get("http://localhost:5000/api/tips");
+    const response = await axios.get("https://women-centric-hzmm.onrender.com/api/tips");
     setTips(response.data.tips);
   } catch (error) {
     console.log(error);
@@ -95,7 +95,7 @@ useEffect(() => {
           const token = localStorage.getItem("token");
 
           await axios.put(
-            "http://localhost:5000/api/user/update-battery",
+            "https://women-centric-hzmm.onrender.com/api/user/update-battery",
             { battery: level },
             {
               headers: {
@@ -129,7 +129,7 @@ useEffect(() => {
       formData.append("profile", file);
 
       const res = await axios.post(
-        "http://localhost:5000/api/user/upload-profile",
+        "https://women-centric-hzmm.onrender.com/api/user/upload-profile",
         formData,
         {
           headers: {
@@ -150,7 +150,7 @@ useEffect(() => {
       try {
         const token = localStorage.getItem("token");
 
-        const res = await axios.get("http://localhost:5000/api/user/me", {
+        const res = await axios.get("https://women-centric-hzmm.onrender.com/api/user/me", {
           headers: {
             Authorization: `Bearer ${token}`,
           },

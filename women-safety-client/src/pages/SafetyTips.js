@@ -19,7 +19,7 @@ export default function SafetyTips() {
 
   const fetchTips = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/api/tips");
+      const response = await axios.get("https://women-centric-hzmm.onrender.com/api/tips");
 
       setTips(response.data.tips);
     } catch (error) {

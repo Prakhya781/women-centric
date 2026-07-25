@@ -81,7 +81,7 @@ export default function ProfileSettings() {
     const token = localStorage.getItem("token");
 
     const res = await axios.get(
-      "http://localhost:5000/api/guardian/my-status",
+      "https://women-centric-hzmm.onrender.com/api/guardian/my-status",
       {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -103,7 +103,7 @@ export default function ProfileSettings() {
       const token = localStorage.getItem("token");
 
       const response = await axios.get(
-        "http://localhost:5000/api/auth/profile",
+        "https://women-centric-hzmm.onrender.com/api/auth/profile",
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -139,7 +139,7 @@ export default function ProfileSettings() {
       const token = localStorage.getItem("token");
 
       const response = await axios.put(
-        "http://localhost:5000/api/auth/update-profile",
+        "https://women-centric-hzmm.onrender.com/api/auth/update-profile",
         profileData,
         {
           headers: {
@@ -165,7 +165,7 @@ const handleGuardianLink = async () => {
     const token = localStorage.getItem("token");
 
     await axios.post(
-      "http://localhost:5000/api/guardian/send-request",
+      "https://women-centric-hzmm.onrender.com/api/guardian/send-request",
       {
         guardianEmail: profileData.guardianEmail,
       },

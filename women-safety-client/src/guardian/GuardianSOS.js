@@ -27,7 +27,7 @@ export default function GuardianSOS({ setActiveMenu }) {
       const token = localStorage.getItem("token");
 
       const res = await axios.get(
-        "http://localhost:5000/api/guardian/sos",
+        "https://women-centric-hzmm.onrender.com/api/guardian/sos",
         {
           headers: {
             Authorization: `Bearer ${token}`,

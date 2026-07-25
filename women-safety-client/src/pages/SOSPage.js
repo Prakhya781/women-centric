@@ -23,7 +23,7 @@ function SOSPage() {
       try {
         const token = localStorage.getItem("token");
         const res = await axios.get(
-          "http://localhost:5000/api/location/current-location",
+          "https://women-centric-hzmm.onrender.com/api/location/current-location",
           { headers: { Authorization: `Bearer ${token}` } }
         );
         if (res.data?.location?.sosActive) {
@@ -53,7 +53,7 @@ function SOSPage() {
         try {
           const token = localStorage.getItem("token");
           await axios.put(
-            "http://localhost:5000/api/location/update-location",
+            "https://women-centric-hzmm.onrender.com/api/location/update-location",
             {
               latitude: position.coords.latitude,
               longitude: position.coords.longitude,
@@ -83,7 +83,7 @@ function SOSPage() {
       const token = localStorage.getItem("token");
 
       const res = await axios.post(
-        "http://localhost:5000/api/sos/deactivate",
+        "https://women-centric-hzmm.onrender.com/api/sos/deactivate",
         {},
         {
           headers: {
@@ -127,7 +127,7 @@ function SOSPage() {
         const token = localStorage.getItem("token");
 
         const res = await axios.post(
-          "http://localhost:5000/api/sos/activate",
+          "https://women-centric-hzmm.onrender.com/api/sos/activate",
           {
             latitude: position.coords.latitude,
             longitude: position.coords.longitude,

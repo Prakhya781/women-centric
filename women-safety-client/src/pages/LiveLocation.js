@@ -62,7 +62,7 @@ export default function LiveLocation() {
       const token = localStorage.getItem("token");
 
       const response = await axios.get(
-        "http://localhost:5000/api/location/current-location",
+        "https://women-centric-hzmm.onrender.com/api/location/current-location",
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -105,7 +105,7 @@ export default function LiveLocation() {
       const token = localStorage.getItem("token");
 
       await axios.put(
-        "http://localhost:5000/api/location/update-location",
+        "https://women-centric-hzmm.onrender.com/api/location/update-location",
         {
           latitude: location.latitude,
           longitude: location.longitude,
@@ -120,10 +120,10 @@ export default function LiveLocation() {
         },
       );
       await axios.delete(
-  `http://localhost:5000/api/location/${getUserId()}`
+  `https://women-centric-hzmm.onrender.com/api/location/${getUserId()}`
 );
       await axios.post(
-  "http://localhost:5000/api/location/updateWoman",
+  "https://women-centric-hzmm.onrender.com/api/location/updateWoman",
   {
     womanId: getUserId(),
     latitude: location.latitude,
@@ -206,7 +206,7 @@ export default function LiveLocation() {
         const token = localStorage.getItem("token");
  try {
         await axios.put(
-          "http://localhost:5000/api/location/update-location",
+          "https://women-centric-hzmm.onrender.com/api/location/update-location",
           {
             latitude,
             longitude,
@@ -233,7 +233,7 @@ export default function LiveLocation() {
     setLocation({ latitude, longitude, address });
     setSharing(true)
         await axios.post(
-  "http://localhost:5000/api/location/updateWoman",
+  "https://women-centric-hzmm.onrender.com/api/location/updateWoman",
   {
     womanId: getUserId(),
     latitude,
@@ -255,7 +255,7 @@ export default function LiveLocation() {
             }));
 
             await axios.put(
-              "http://localhost:5000/api/location/update-location",
+              "https://women-centric-hzmm.onrender.com/api/location/update-location",
               {
                 latitude,
                 longitude,
@@ -269,7 +269,7 @@ export default function LiveLocation() {
               },
             );
             await axios.post(
-  "http://localhost:5000/api/location/updateWoman",
+  "https://women-centric-hzmm.onrender.com/api/location/updateWoman",
   {
     womanId: getUserId(),
     latitude,

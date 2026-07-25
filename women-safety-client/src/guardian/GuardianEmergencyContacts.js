@@ -20,7 +20,7 @@ export default function GuardianEmergencyContacts() {
       const token = localStorage.getItem("token");
 
       const res = await axios.get(
-        "http://localhost:5000/api/guardian/emergency-contacts",
+        "https://women-centric-hzmm.onrender.com/api/guardian/emergency-contacts",
         {
           headers: {
             Authorization: `Bearer ${token}`,

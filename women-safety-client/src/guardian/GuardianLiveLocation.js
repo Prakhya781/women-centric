@@ -75,7 +75,7 @@ export default function GuardianLiveLocation() {
   try {
 
     const res = await axios.get(
-      `http://localhost:5000/api/location/${linkedWomanId}`
+      `https://women-centric-hzmm.onrender.com/api/location/${linkedWomanId}`
     );
 
     if (res.data.success) {
@@ -109,7 +109,7 @@ export default function GuardianLiveLocation() {
     const token = localStorage.getItem("token");
 
     const res = await axios.get(
-      "http://localhost:5000/api/guardian/myWoman",
+      "https://women-centric-hzmm.onrender.com/api/guardian/myWoman",
       {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -161,7 +161,7 @@ export default function GuardianLiveLocation() {
   const updateGuardianLocation = async (lat, lng) => {
     try {
       await axios.post(
-        "http://localhost:5000/api/location/updateGuardian",
+        "https://women-centric-hzmm.onrender.com/api/location/updateGuardian",
         {
           guardianId: getUserId(),
           latitude: lat,

@@ -30,7 +30,7 @@ export default function EmergencyContacts() {
       const token = localStorage.getItem("token");
 
       const response = await axios.get(
-        "http://localhost:5000/api/emergency-contacts",
+        "https://women-centric-hzmm.onrender.com/api/emergency-contacts",
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -64,7 +64,7 @@ export default function EmergencyContacts() {
 
       if (editingId) {
         await axios.put(
-          `http://localhost:5000/api/emergency-contacts/${editingId}`,
+          `https://women-centric-hzmm.onrender.com/api/emergency-contacts/${editingId}`,
           formData,
           {
             headers: {
@@ -76,7 +76,7 @@ export default function EmergencyContacts() {
         alert("Contact Updated");
       } else {
         await axios.post(
-          "http://localhost:5000/api/emergency-contacts",
+          "https://women-centric-hzmm.onrender.com/api/emergency-contacts",
           formData,
           {
             headers: {
@@ -118,7 +118,7 @@ export default function EmergencyContacts() {
     try {
       const token = localStorage.getItem("token");
 
-      await axios.delete(`http://localhost:5000/api/emergency-contacts/${id}`, {
+      await axios.delete(`https://women-centric-hzmm.onrender.com/api/emergency-contacts/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
