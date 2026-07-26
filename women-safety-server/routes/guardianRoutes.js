@@ -6,23 +6,10 @@ const User = require("../models/User");
 
 const authMiddleware = require("../middleware/authMiddleware");
 
-const nodemailer = require("nodemailer");
+const sendEmail = require("../utils/sendEmail");
 
 // ================= NODEMAILER =================
 
-const transporter = nodemailer.createTransport({
-  host: "smtp.gmail.com",
-  port: 465,
-  secure: true,
-  auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS,
-  },
-  connectionTimeout: 20000,
-  greetingTimeout: 20000,
-  socketTimeout: 20000,
-  family: 4,
-});
 
 // ================= LINK GUARDIAN =================
 
@@ -74,37 +61,20 @@ router.post("/link", authMiddleware, async (req, res) => {
     await guardianUser.save();
 
     // ================= SEND MAIL TO GUARDIAN =================
+sendEmail(
+  guardianEmail,
+  "SafeHer Guardian Linked",
+  `<h2>Guardian Linked Successfully</h2><p>${womanUser.name} has linked you as guardian in SafeHer.</p>`
+);
 
-     transporter.sendMail({
-      from: process.env.EMAIL_USER,
-
-      to: guardianEmail,
-
-      subject: "SafeHer Guardian Linked",
-
-      html: `
-        <h2>Guardian Linked Successfully</h2>
-
-        <p>${womanUser.name} has linked you as guardian in SafeHer.</p>
-      `,
-    }).catch(err => console.log("Mail failed:", err.message));
-
+sendEmail(
+  womanUser.email,
+  "Guardian Connected Successfully",
+  `<h2>Guardian Linked Successfully</h2><p>You successfully linked ${guardianUser.name} as your guardian.</p>`
+);
     // ================= SEND MAIL TO WOMAN =================
 
-     transporter.sendMail({
-      from: process.env.EMAIL_USER,
-
-      to: womanUser.email,
-
-      subject: "Guardian Connected Successfully",
-
-      html: `
-        <h2>Guardian Linked Successfully</h2>
-
-        <p>You successfully linked ${guardianUser.name} as your guardian.</p>
-      `,
-    }).catch(err => console.log("Mail failed:", err.message));
-
+    
     res.status(200).json({
       success: true,
       message: "Guardian Linked Successfully",

@@ -3,23 +3,11 @@ const router = express.Router();
 const Notification = require("../models/Notification");
 const User = require("../models/User");
 const authMiddleware = require("../middleware/authMiddleware");
-const nodemailer = require("nodemailer");
+const sendEmail = require("../utils/sendEmail"); 
 const { v4: uuidv4 } = require("uuid");
 const Location = require("../models/Location");
 
-const transporter = nodemailer.createTransport({
-  host: "smtp.gmail.com",
-  port: 465,
-  secure: true,
-  auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS,
-  },
-  connectionTimeout: 20000,
-  greetingTimeout: 20000,
-  socketTimeout: 20000,
-  family: 4,
-});
+
 
 router.post("/activate", authMiddleware, async (req, res) => {
   try {
@@ -69,47 +57,19 @@ const trackingLink = `http://localhost:3000/track/${user.trackingToken}`;
     // Guardian Mail
 
     if (user.guardianEmail) {
-       transporter.sendMail({
-        from: process.env.EMAIL_USER,
-        to: user.guardianEmail,
-        subject: "🚨 SOS ALERT - SafeHer",
-        html: `
-          <h1>Emergency Alert</h1>
-
-          <p>${user.name} has activated SOS.</p>
-
-          <p><b>Current Address:</b> ${address}</p>
-
-          <p>
-            <a href="${mapLink}">
-              Open Current Location
-            </a>
-          </p>
-
-          <p>
-            <a href="${trackingLink}">
-              Track Live Location
-            </a>
-          </p>
-        `,
-      }).catch(err => console.log("Mail failed:", err.message));
-    }
+  sendEmail(
+    user.guardianEmail,
+    "🚨 SOS ALERT - SafeHer",
+    `<h1>Emergency Alert</h1><p>${user.name} has activated SOS.</p><p><b>Current Address:</b> ${address}</p><p><a href="${mapLink}">Open Current Location</a></p><p><a href="${trackingLink}">Track Live Location</a></p>`
+  );
+}
 
     // Woman Mail
-
-     transporter.sendMail({
-      from: process.env.EMAIL_USER,
-      to: user.email,
-      subject: "SOS Activated",
-      html: `
-        <h2>SOS Activated Successfully</h2>
-
-        <p>
-          Your guardian has been notified.
-        </p>
-      `,
-    }).catch(err => console.log("Mail failed:", err.message));
-
+sendEmail(
+  user.email,
+  "SOS Activated",
+  `<h2>SOS Activated Successfully</h2><p>Your guardian has been notified.</p>`
+);
     res.json({
       success: true,
       message: "SOS Activated",
@@ -136,20 +96,12 @@ user.trackingToken = null;
 
     // Guardian Email
     if (user.guardianEmail) {
-       transporter.sendMail({
-        from: process.env.EMAIL_USER,
-        to: user.guardianEmail,
-        subject: "✅ SOS Ended - SafeHer",
-        html: `
-          <h2>SOS Ended</h2>
-
-          <p>${user.name} has marked themselves safe.</p>
-
-          <p>The emergency session has ended.</p>
-        `,
-      }).catch(err => console.log("Mail failed:", err.message));
-    }
-
+  sendEmail(
+    user.guardianEmail,
+    "✅ SOS Ended - SafeHer",
+    `<h2>SOS Ended</h2><p>${user.name} has marked themselves safe.</p><p>The emergency session has ended.</p>`
+  );
+}
     res.json({
       success: true,
       message: "SOS Deactivated Successfully",
@@ -220,52 +172,26 @@ user.trackingStartedAt = new Date();
 
     // ================= GUARDIAN EMAIL =================
     if (user.guardianEmail) {
-       transporter.sendMail({
-        from: process.env.EMAIL_USER,
-        to: user.guardianEmail,
-        subject: "🚨 EMERGENCY SOS ALERT - SafeHer",
-        html: `
-          <div style="font-family: Arial; padding:20px;">
-            <h1 style="color:red;">Emergency SOS Alert</h1>
-            <p><b>${user.name}</b> may be in danger.</p>
-            <p><b>Situation:</b> ${message}</p>
-            <p><b>Current Coordinates:</b> ${location.lat}, ${location.lng}</p>
-            <br/>
-            <a href="${mapLink}" style="background:#ef4444;color:white;padding:12px 20px;text-decoration:none;border-radius:8px;display:inline-block;margin-right:10px;">Open Live Location</a>
-           <a href="${trackingLink}"
-style="
-background:#2563eb;
-padding:14px 28px;
-border-radius:8px;
-color:white;
-text-decoration:none;
-font-weight:bold;
-display:inline-block;">
-📍 Track Live Location
-</a>
-          </div>
-        `,
-      }).catch(err => console.log("Mail failed:", err.message));
-    }
+  sendEmail(
+    user.guardianEmail,
+    "🚨 EMERGENCY SOS ALERT - SafeHer",
+    `<div style="font-family: Arial; padding:20px;"><h1 style="color:red;">Emergency SOS Alert</h1><p><b>${user.name}</b> may be in danger.</p><p><b>Situation:</b> ${message}</p><p><b>Current Coordinates:</b> ${location.lat}, ${location.lng}</p><br/><a href="${mapLink}" style="background:#ef4444;color:white;padding:12px 20px;text-decoration:none;border-radius:8px;display:inline-block;margin-right:10px;">Open Live Location</a><a href="${trackingLink}" style="background:#2563eb;padding:14px 28px;border-radius:8px;color:white;text-decoration:none;font-weight:bold;display:inline-block;">📍 Track Live Location</a></div>`
+  );
+}
 
     // ================= USER EMAIL =================
-     transporter.sendMail({
-      from: process.env.EMAIL_USER,
-      to: user.email,
-      subject: "SOS Activated Successfully",
-      html: `
-        <div style="font-family: Arial; padding:20px;">
-          <h2 style="color:#ef4444;">SOS Activated</h2>
-          <p>Your guardian has been notified successfully.</p>
-          <p>Stay calm. Help is on the way.</p>
-        </div>
-      `,
-    });
+     sendEmail(
+  user.email,
+  "SOS Activated Successfully",
+  `<div style="font-family: Arial; padding:20px;"><h2 style="color:#ef4444;">SOS Activated</h2><p>Your guardian has been notified successfully.</p><p>Stay calm. Help is on the way.</p></div>`
+);
 
-    res.status(200).json({
-      success: true,
-      message: "SOS Activated & Guardian Alert Sent",
-    }).catch(err => console.log("Mail failed:", err.message));
+res.status(200).json({
+  success: true,
+  message: "SOS Activated & Guardian Alert Sent",
+});
+
+    
   } catch (error) {
     console.log(error);
 

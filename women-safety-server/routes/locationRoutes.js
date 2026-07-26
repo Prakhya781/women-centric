@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 
 const User = require("../models/User");
-const nodemailer = require("nodemailer");
+const sendEmail = require("../utils/sendEmail"); 
 const authMiddleware = require("../middleware/authMiddleware");
 
 // NEW
@@ -18,19 +18,7 @@ require("../controllers/locationController");
 
 // ================= EMAIL TRANSPORT =================
 
-const transporter = nodemailer.createTransport({
-  host: "smtp.gmail.com",
-  port: 465,
-  secure: true,
-  auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS,
-  },
-  connectionTimeout: 20000,
-  greetingTimeout: 20000,
-  socketTimeout: 20000,
-  family: 4,
-});
+
 
 // ================= UPDATE LOCATION =================
 
@@ -134,16 +122,11 @@ user.movementTrackingActive = liveLocationEnabled === true;
 
 // Agar alert trigger hua, guardian ko notify karo
 if (movementAlert && user.guardianEmail) {
-  transporter.sendMail({
-    from: process.env.EMAIL_USER,
-    to: user.guardianEmail,
-    subject: "⚠️ Unusual Movement Detected - SafeHer",
-    html: `
-      <h2>Unusual Movement Detected</h2>
-      <p>${user.name}'s movement pattern looks unusual — possible risk.</p>
-      <p><a href="https://www.google.com/maps?q=${latitude},${longitude}">View Current Location</a></p>
-    `,
-  }).catch(err => console.log("Movement alert mail failed:", err));
+  sendEmail(
+    user.guardianEmail,
+    "⚠️ Unusual Movement Detected - SafeHer",
+    `<h2>Unusual Movement Detected</h2><p>${user.name}'s movement pattern looks unusual — possible risk.</p><p><a href="https://www.google.com/maps?q=${latitude},${longitude}">View Current Location</a></p>`
+  );
 }
 
     await user.save();
@@ -166,54 +149,23 @@ await Location.findOneAndUpdate(
 );
 
     // ================= SEND MAIL ONLY ON START =================
+if (!wasAlreadySharing && liveLocationEnabled === true && user.guardianEmail) {
+  const mapLink = `https://www.google.com/maps?q=${latitude},${longitude}`;
 
-    if (
-      !wasAlreadySharing &&
-      liveLocationEnabled === true &&
-      user.guardianEmail
-    ) {
-      const mapLink = `https://www.google.com/maps?q=${latitude},${longitude}`;
+  sendEmail(
+    user.guardianEmail,
+    "SafeHer Live Location Started",
+    `<h2>${user.name} started Live Location Sharing</h2><p><b>Current Place:</b> ${address}</p><p><b>Duration:</b> ${duration} minutes</p><p><a href="${mapLink}">Open Live Location</a></p>`
+  );
 
-       transporter.sendMail({
-        from: process.env.EMAIL_USER,
-        to: user.guardianEmail,
-        subject: "SafeHer Live Location Started",
-        html: `
-          <h2>${user.name} started Live Location Sharing</h2>
+  sendEmail(
+    user.email,
+    "Location Sharing Started",
+    `<h2>Location Sharing Active</h2><p>Your live location has been shared with ${user.guardianEmail}</p><p>Duration: ${duration} minutes</p>`
+  );
 
-          <p><b>Current Place:</b> ${address}</p>
-
-          <p><b>Duration:</b> ${duration} minutes</p>
-
-          <p>
-            <a href="${mapLink}">
-              Open Live Location
-            </a>
-          </p>
-        `,
-      }).catch(err => console.log("Mail failed:", err.message));
-
-      await transporter.sendMail({
-        from: process.env.EMAIL_USER,
-        to: user.email,
-        subject: "Location Sharing Started",
-        html: `
-          <h2>Location Sharing Active</h2>
-
-          <p>
-            Your live location has been shared with
-            ${user.guardianEmail}
-          </p>
-
-          <p>
-            Duration: ${duration} minutes
-          </p>
-        `,
-      }).catch(err => console.log("Mail failed:", err.message));
-
-      console.log("Location mails sent successfully");
-    }
-
+  console.log("Location mails sent successfully");
+}
     res.status(200).json({
       success: true,
       message: "Location Updated Successfully",
