@@ -70,7 +70,7 @@ router.post("/link", authMiddleware, async (req, res) => {
 
     // ================= SEND MAIL TO GUARDIAN =================
 
-    await transporter.sendMail({
+     transporter.sendMail({
       from: process.env.EMAIL_USER,
 
       to: guardianEmail,
@@ -82,11 +82,11 @@ router.post("/link", authMiddleware, async (req, res) => {
 
         <p>${womanUser.name} has linked you as guardian in SafeHer.</p>
       `,
-    });
+    }).catch(err => console.log("Mail failed:", err.message));
 
     // ================= SEND MAIL TO WOMAN =================
 
-    await transporter.sendMail({
+     transporter.sendMail({
       from: process.env.EMAIL_USER,
 
       to: womanUser.email,
@@ -98,7 +98,7 @@ router.post("/link", authMiddleware, async (req, res) => {
 
         <p>You successfully linked ${guardianUser.name} as your guardian.</p>
       `,
-    });
+    }).catch(err => console.log("Mail failed:", err.message));
 
     res.status(200).json({
       success: true,

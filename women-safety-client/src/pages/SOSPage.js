@@ -79,28 +79,34 @@ function SOSPage() {
   };
 
   const stopSOS = async () => {
+  try {
+    const token = localStorage.getItem("token");
+    const res = await axios.post(
+      "https://women-centric-hzmm.onrender.com/api/sos/deactivate", {},
+      { headers: { Authorization: `Bearer ${token}` }, timeout: 15000 }
+    );
+    alert(res.data.message);
+    setSosActive(false);
+    stopWatching();
+  } catch (error) {
+    console.log(error);
+    // galat "failed" dikhane se pehle real status verify karo
     try {
       const token = localStorage.getItem("token");
-
-      const res = await axios.post(
-        "https://women-centric-hzmm.onrender.com/api/sos/deactivate",
-        {},
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        },
+      const check = await axios.get(
+        "https://women-centric-hzmm.onrender.com/api/location/current-location",
+        { headers: { Authorization: `Bearer ${token}` } }
       );
-
-      alert(res.data.message);
-      setSosActive(false);
-      stopWatching();
-    } catch (error) {
-      console.log(error);
-      alert("Failed to Stop SOS");
-    }
-  };
-
+      if (!check.data?.location?.sosActive) {
+        setSosActive(false);
+        stopWatching();
+        alert("SOS Stopped Successfully");
+        return;
+      }
+    } catch (e) {}
+    alert("Failed to Stop SOS — please try again");
+  }
+};
   const startSOS = () => {
     if (sosActive || isActivating) return;
 

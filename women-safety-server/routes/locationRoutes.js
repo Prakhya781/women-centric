@@ -168,7 +168,7 @@ await Location.findOneAndUpdate(
     ) {
       const mapLink = `https://www.google.com/maps?q=${latitude},${longitude}`;
 
-      await transporter.sendMail({
+       transporter.sendMail({
         from: process.env.EMAIL_USER,
         to: user.guardianEmail,
         subject: "SafeHer Live Location Started",
@@ -185,7 +185,7 @@ await Location.findOneAndUpdate(
             </a>
           </p>
         `,
-      });
+      }).catch(err => console.log("Mail failed:", err.message));
 
       await transporter.sendMail({
         from: process.env.EMAIL_USER,
@@ -203,7 +203,7 @@ await Location.findOneAndUpdate(
             Duration: ${duration} minutes
           </p>
         `,
-      });
+      }).catch(err => console.log("Mail failed:", err.message));
 
       console.log("Location mails sent successfully");
     }

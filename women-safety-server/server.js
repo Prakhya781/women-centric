@@ -53,7 +53,6 @@ app.use("/api/guardian-alert", guardianAlertRoutes);
 app.use("/api/report", reportRoutes);
 app.use("/uploads", express.static("uploads"));
 app.use("/api/notifications", notificationRoutes);
-app.use("/api/dashboard", dashboardRoutes);
 app.use("/api/dashboard", require("./routes/dashboard"));
 // ================= MONGODB CONNECTION =================
 

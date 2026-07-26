@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./GuardianRequests.css";
 
-export default function GuardianRequests() {
+export default function GuardianRequests({ checkGuardian }) {
   const [requests, setRequests] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -46,6 +46,7 @@ export default function GuardianRequests() {
       );
 
       fetchRequests();
+      if (checkGuardian) checkGuardian();
     } catch (err) {
       console.log(err);
     }

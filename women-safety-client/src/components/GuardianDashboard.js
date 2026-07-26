@@ -185,7 +185,7 @@ return(
 );
 
       case "Guardian Requests":
-return <GuardianRequests />;
+  return <GuardianRequests checkGuardian={checkGuardian} />;
 
       case "Live Location":
         return <GuardianLiveLocation />;

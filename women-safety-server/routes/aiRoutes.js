@@ -4,9 +4,13 @@ const Notification = require("../models/Notification");
 const analyzeSituation = require("../services/aiService");
 const authMiddleware = require("../middleware/authMiddleware");
 const AIProtection = require("../models/AIProtection");
-
+const User = require("../models/User");
+const sendEmail = require("../utils/sendEmail");
 router.post("/analyze", authMiddleware, async (req, res) => {
   try {
+    // FIRST LINE inside router.post("/analyze", ...)
+const user = await User.findById(req.user.id);
+if (!user) return res.status(404).json({ success: false, message: "User not found" });
     const { message } = req.body;
 
     const text = message.toLowerCase();
@@ -51,6 +55,13 @@ router.post("/analyze", authMiddleware, async (req, res) => {
 
         type: "AI",
       });
+      if (riskLevel === "HIGH" && user.guardianEmail) {
+  await sendEmail(
+    user.guardianEmail,
+    "⚠️ AI Protection Alert - SafeHer",
+    `<h2>Possible danger detected</h2><p>${user.name}'s AI Protection flagged a HIGH risk situation.</p><p>Message: ${message}</p>`
+  ).catch(err => console.log("AI alert mail failed:", err));
+}
       riskLevel = "HIGH";
       if (riskLevel === "HIGH" || shouldTriggerSOS) {
   user.keywordAlertActive = true;

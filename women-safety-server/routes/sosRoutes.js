@@ -5,6 +5,7 @@ const User = require("../models/User");
 const authMiddleware = require("../middleware/authMiddleware");
 const nodemailer = require("nodemailer");
 const { v4: uuidv4 } = require("uuid");
+const Location = require("../models/Location");
 
 const transporter = nodemailer.createTransport({
   service: "gmail",
@@ -40,7 +41,6 @@ user.trackingEnabled = true;
 user.trackingStartedAt = new Date();
 
 await user.save();   // ek hi save
-    const Location = require("../models/Location");
 
 await Location.findOneAndUpdate(
     {
@@ -86,7 +86,7 @@ const trackingLink = `http://localhost:3000/track/${user.trackingToken}`;
             </a>
           </p>
         `,
-      });
+      }).catch(err => console.log("Mail failed:", err.message));
     }
 
     // Woman Mail
@@ -102,7 +102,7 @@ const trackingLink = `http://localhost:3000/track/${user.trackingToken}`;
           Your guardian has been notified.
         </p>
       `,
-    });
+    }).catch(err => console.log("Mail failed:", err.message));
 
     res.json({
       success: true,
@@ -130,7 +130,7 @@ user.trackingToken = null;
 
     // Guardian Email
     if (user.guardianEmail) {
-      await transporter.sendMail({
+       transporter.sendMail({
         from: process.env.EMAIL_USER,
         to: user.guardianEmail,
         subject: "✅ SOS Ended - SafeHer",
@@ -141,7 +141,7 @@ user.trackingToken = null;
 
           <p>The emergency session has ended.</p>
         `,
-      });
+      }).catch(err => console.log("Mail failed:", err.message));
     }
 
     res.json({
@@ -214,7 +214,7 @@ user.trackingStartedAt = new Date();
 
     // ================= GUARDIAN EMAIL =================
     if (user.guardianEmail) {
-      await transporter.sendMail({
+       transporter.sendMail({
         from: process.env.EMAIL_USER,
         to: user.guardianEmail,
         subject: "🚨 EMERGENCY SOS ALERT - SafeHer",
@@ -239,11 +239,11 @@ display:inline-block;">
 </a>
           </div>
         `,
-      });
+      }).catch(err => console.log("Mail failed:", err.message));
     }
 
     // ================= USER EMAIL =================
-    await transporter.sendMail({
+     transporter.sendMail({
       from: process.env.EMAIL_USER,
       to: user.email,
       subject: "SOS Activated Successfully",
@@ -259,7 +259,7 @@ display:inline-block;">
     res.status(200).json({
       success: true,
       message: "SOS Activated & Guardian Alert Sent",
-    });
+    }).catch(err => console.log("Mail failed:", err.message));
   } catch (error) {
     console.log(error);
 
